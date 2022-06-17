@@ -1,15 +1,46 @@
-# Passos iniciais
-1. Clone o projeto
-1. `npm install` - instala as dependências
-3. Instale as extensões "Prettier e ESLint" no VSCode
-4. Crie um arquivo .env de acordo com o .env.example com os dados necessários
-5. `npm start` - Inicia o Servidor local
-6. `npm test` - Inicia os testes em jest
+# AgroFlow
 
-## Padrão de pastas
-* `src/config` - Pasta com os componentes comuns a vários tipos de configuração (Ex: db.config, env config)
-* `src/usuario` - Pasta com os componentes do usuario (routes, controllers, etc)
-* `routes.tsx` - Arquivo de rotas do projeto (e principal)
+## 💻 Pré-requisitos
 
-## Dicas
-* Sempre formate o arquivo com o `alt + shift + F` (Escolha o Prettier como formatador padrão), isso faz com que o projeto fique mais padronizado.
+Before starting, verify if you have attend the minimum requirements:
+* You have installed in your local machine the Node.
+* You have read the documentation of the project.
+
+# Installation
+1. Clone the project.
+2. `npm install` - To install the dependencies.
+3. Create a file called .env following the .env.example patterns with the required information.
+4. `npm start` - Init the develop server.
+5. `npm test` - Init the tests.
+
+## Directory patterns
+* `src/config` - Folder with common components with a various types of configurations (Ex: db.config, env config)
+* `src/usuario` - Folder with the user components (routes, controllers, etc)
+* `index.ts` - File that initializes the project (main)
+
+## Tips
+* Always format the file with `npm lint` (Choose the Prettier as default), it will make the project more organized and a better code.
+
+## 🤝 Authors
+
+Collaborators who helped creating the project:
+
+<table>
+  <tr>
+    <td align="center">
+      <a href="#">
+        <img src="https://avatars.githubusercontent.com/u/56770452?s=400&u=8d14683220f49c2f79fe24c31d50cb893a268efe&v=4" width="100px;" alt="Foto do Luluopa no GitHub"/><br>
+        <sub>
+          <b>Lucas Lima</b>
+        </sub>
+      </a>
+    </td>
+  </tr>
+</table>
+
+## License
+
+`MIT`
+Look at the file: [LICENÇA](LICENSE.md) if you wanna see the details.
+
+[⬆ Back to the top](#nome-do-AgroFlow)<br>
