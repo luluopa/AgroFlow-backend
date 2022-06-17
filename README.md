@@ -1,6 +1,6 @@
 # AgroFlow
 
-## 💻 Pré-requisitos
+## Requirements
 
 Before starting, verify if you have attend the minimum requirements:
 * You have installed in your local machine the Node.
@@ -21,15 +21,15 @@ Before starting, verify if you have attend the minimum requirements:
 ## Tips
 * Always format the file with `npm lint` (Choose the Prettier as default), it will make the project more organized and a better code.
 
-## 🤝 Authors
+## Authors
 
 Collaborators who helped creating the project:
 
 <table>
   <tr>
     <td align="center">
-      <a href="#">
-        <img src="https://avatars.githubusercontent.com/u/56770452?s=400&u=8d14683220f49c2f79fe24c31d50cb893a268efe&v=4" width="100px;" alt="Foto do Luluopa no GitHub"/><br>
+      <a href="https://github.com/luluopa">
+        <img src="https://avatars.githubusercontent.com/u/56770452?s=400&u=8d14683220f49c2f79fe24c31d50cb893a268efe&v=4" width="100px;"alt="Foto do Luluopa no GitHub"/><br>
         <sub>
           <b>Lucas Lima</b>
         </sub>
@@ -41,6 +41,7 @@ Collaborators who helped creating the project:
 ## License
 
 `MIT`
-Look at the file: [LICENÇA](LICENSE.md) if you wanna see the details.
 
-[⬆ Back to the top](#nome-do-AgroFlow)<br>
+Look at the file: [LICENSE](LICENSE) if you wanna see the details.
+
+[⬆ Back to the top](#AgroFlow)<br>
