@@ -1,6 +1,7 @@
 import express, { Express, Request, Response } from 'express'
 import dotenv from 'dotenv'
-import DB_CONNECT from './usuario/models/index'
+import database from './models'
+import basicrouters from './routers/basicRouters'
 
 dotenv.config()
 
@@ -8,23 +9,13 @@ const app: Express = express()
 const port = process.env.PORT
 const env = process.env.NODE_ENV
 
-app.get('/', async (request: Request, response: Response) => {
-  response.status(200).send(JSON.stringify({ Success: 'Your first app' }))
-})
-
-app.get('/db/', async (request: Request, response: Response) => {
-  try {
-    await DB_CONNECT.authenticate().then(() => {
-      response.status(200).send(JSON.stringify({ 'Connection status to the database: ': 'OK' }))
-    })
-  } catch (error) {
-    response.status(500).send(JSON.stringify({ 'Connection status to the database': 'FAIL' }))
-  }
-})
+app.use('/', basicrouters)
 
 if (env !== 'test') {
-  app.listen(port, () => {
-    console.log(`[server]: Server is running at http://localhost:${port}`)
+  database.sync({ force: true }).then(() => {
+    app.listen(port, () => {
+      console.log(`[server]: Server is running at http://localhost:${port}`)
+    })
   })
 }
 
