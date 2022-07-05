@@ -8,41 +8,55 @@ const userCreate = async (request: Request, response: Response): Promise<Respons
 }
 
 const userDelete = async (request: Request, response: Response): Promise<Response> => {
-    const { id }: number | any = request.params
-    const user: User | null = await User.findByPk(id)
-    if (user != null) {
-        user.is_deleted = true
-        await user.save()
-        return response.status(201).json({ user: 'is deleted' })
+    const { id }: string | any = request.params
+    try{
+        const user: User | null = await User.findByPk(id)
+        if(user != null){
+            user.is_deleted = true
+            await user.save()
+            return response.status(200).json('Deleted')
+        }
+        return response.status(404).json("404 Not Found")
     }
-
-    return response.status(404).json("Not found")
+    catch(error){
+        return response.status(404).json("404 Not Found")
+    }
 }
 
 const userList = async (request: Request, response: Response): Promise<Response> => {
-    const listUser = User.findAll()
-    return response.status(201).json(listUser)
+    const listUser = await User.findAll()
+    return response.status(200).json(listUser)
 }
 
 const userGet = async (request: Request, response: Response): Promise<Response> => {
-    const { id }: number | any = request.params
-    const user: User | null = await User.create({ ...request.body })
-    if (user != null){
-        return response.status(201).json(user)
+    const { id }: string | any = request.params
+    try{
+        const user: User | null = await User.findByPk(id)
+        if(user != null){
+            return response.status(200).json(user)
+        }
+        return response.status(404).json("404 Not Found")
     }
-    return response.status(404).json('Not found')
+    catch(error){
+        return response.status(404).json("404 Not Found")
+    }
 }
 
 const userUpdate = async (request: Request, response: Response): Promise<Response> => {
-    const { id }: number | any = request.params
-    const user: User | null = await User.findByPk(id)
-    if (user != null){
-        user.update({ ...request.body })
-        user.updated_at = new Date()
-        await user.save
-        return response.status(200).json(user)
+    const { id }: string | any = request.params
+    try{
+        const user: User | null = await User.findByPk(id)
+        if(user != null){
+            user.update({ ...request.body })
+            user.updated_at = new Date()
+            await user.save
+            return response.status(200).json(user)
+        }
+        return response.status(404).json("404 Not Found")
     }
-    return response.status(404).json('Not found')
+    catch(error){
+        return response.status(404).json("404 Not Found")
+    }
 }
 
 export { userCreate, userDelete, userGet, userList, userUpdate }

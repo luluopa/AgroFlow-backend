@@ -2,11 +2,17 @@ import express, { Request, Response } from "express";
 import { Model } from "sequelize/types";
 import { User } from "../../models/user";
 
-export const getUserOr404 = async (request: Request, response: Response): Promise<Model | ReturnType<any> > => {
+export const getUserOr404 = async (request: Request, response: Response): Promise<User | null> => {
     const { id } = request.params
-    const model_find: Model | null = await User.findByPk(id)
-    if (model_find != null){
-        return model_find
+    try{
+        const model: User | null = await User.findByPk(id)
+        if (model != null){
+            return model
+        }
+        return null
     }
-    return response.status(404).json("Not found")
+    catch(error){
+        return null
+    }
 }
+
