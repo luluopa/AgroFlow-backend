@@ -49,7 +49,7 @@ const userUpdate = async (request: Request, response: Response): Promise<Respons
         if(user != null){
             user.update({ ...request.body })
             user.updated_at = new Date()
-            await user.save
+            await user.save()
             return response.status(200).json(user)
         }
         return response.status(404).json("404 Not Found")
