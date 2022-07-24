@@ -16,13 +16,16 @@ const env = process.env.NODE_ENV
 const jsonParser = bodyParser.json()
  
 // create application/x-www-form-urlencoded parser
-const urlencodedParser = bodyParser.urlencoded({ extended: false })
+const urlencodedParser = bodyParser.urlencoded({ extended: true })
 
 // setting up the cors middldeware
 app.use(cors());
 
-app.use('/', jsonParser, basicrouters)
-app.use('/user', jsonParser, userRouter)
+app.use(jsonParser)
+app.use(urlencodedParser)
+
+app.use('/', basicrouters)
+app.use('/user', userRouter)
 
 if (env !== 'test') {
   database.sync().then(() => {
