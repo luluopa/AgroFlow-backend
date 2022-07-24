@@ -13,6 +13,7 @@ const userDelete = async (request: Request, response: Response): Promise<Respons
         const user: User | null = await User.findByPk(id)
         if(user != null){
             user.is_deleted = true
+            user.deleted_at = new Date()
             await user.save()
             return response.status(200).json('Deleted')
         }
